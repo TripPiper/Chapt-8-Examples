@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chapter8inchapterexamples;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Tutor
+ */
+public class DisplayTestScores {
+
+    public static void main(String[] args) {
+        int numTests;  // The number of test scores
+        int[] tests;     // Array of test scores
+
+        // Creat a SCanner object
+        Scanner keyboard = new Scanner(System.in);
+        // Get the number of test scores
+
+        System.out.println(" How many test scores do you have ?");
+        numTests = keyboard.nextInt();
+
+        // Create an array to hold employee hours.
+        tests = new int[numTests];
+
+        // Get the individual test scores
+        for (int index = 0; index < tests.length; index++) {
+            System.out.print(" Enter the test score " + (index + 1) + " : ");
+            tests[index] = keyboard.nextInt();
+        }
+
+        // Display the test score
+        System.out.println();
+        System.out.println("Here are the test scores you entered : ");
+
+        for (int index = 0; index < tests.length; index++) {
+
+            System.out.print(tests[index] + "  ");
+        }
+    } 
+
+}
