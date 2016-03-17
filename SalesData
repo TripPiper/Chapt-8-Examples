@@ -1,0 +1,134 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package chapter8arrays;
+
+import java.text.DecimalFormat;
+import javax.swing.JOptionPane;
+
+/**
+ * This class keeps the sales figures for a number of days in an array and
+ * provides methods for getting the total and the average sales , and the
+ * highest and lowest amounts of sales.
+ */
+public class SalesData {
+
+    private double[] sales; // The sales data
+
+    /**
+     * The constructor copies the elements in an array to the sales array.
+     *
+     * @param s The array to copy.
+     */
+    public SalesData(double[] s) {
+        // Create am array as large as s.
+
+        sales = new double[s.length];
+
+        // Copy the elements from s to sales.
+        for (int index = 0; index < s.length; index++) {
+            sales[index] = s[index];
+        }
+    }
+
+    /**
+     * getTotal method
+     *
+     * @return The total of the elements in the sales array.
+     */
+    public double getTotal() {
+        double total = 0.0;  // Accumulator
+        // Accumulate the sum of the elements
+        // in the sales array
+        for (int index = 0; index < sales.length; index++) {
+            total += sales[index];
+        }
+
+        // Return the total.  
+        return total;
+    }
+    /**
+     * getAverage method @return The average 
+     * of the elements in the sales array.
+     
+     */
+    public double getAverage()
+            { 
+                
+                return getTotal () / sales.length;         }
+
+    /**
+     * getHighest method
+     *
+     * @return The highest of the elements in the sales array.
+     */
+    public double getHighest() {
+        double highest = sales[0];
+        for (int index = 0; index < sales.length; index++) {
+            if (sales[index] > highest) {
+                highest = sales[index];
+            }
+        }
+        return highest;
+
+    }
+
+    /**
+     * getLowest method
+     *
+     * @return The lowest of the elements in the sales array.
+     */
+    public double getLowest() {
+        double lowest = sales[0];
+        for (int index = 0; index < sales.length; index++) {
+            if (sales[index] > lowest) {
+                lowest = sales[index];
+            }
+        }
+        return lowest;
+
+    }
+
+    public static void main(String[] args) {
+        final int ONE_WEEK = 7; // Number of elements 
+
+        // Create an array to hold sales amounts for a week.
+        double[] sales = new double[ONE_WEEK];
+
+        // Get the week's sales figures.
+        getValues(sales);
+
+        // Create a sales data object , initialized
+        // with the week's sales figures.
+        SalesData week = new SalesData(sales);
+
+        // Create decimal format object
+        DecimalFormat dollar = new DecimalFormat("#,##0.00");
+
+        // Display the total , average , highest, and lowest
+        // sales amounts for the week.
+        JOptionPane.showMessageDialog(null,
+                "The total sales were $ " +
+                 dollar.format(week.getTotal()) +
+                "\nThe average sales were $ " +
+                 dollar.format(week.getAverage())+
+                 "\nThe highest sales were $ " +
+                 dollar.format(week.getHighest())+
+                 "\nThe lowest sales were $ "+
+                dollar.format(week.getLowest()));
+        
+        System.exit(0);
+    }
+
+    private static void getValues(double[] array) {
+        String input; // To hold user input.
+
+        // Get sales for each day of the week.
+        for (int i = 0; i < array.length; i++) {
+            input = JOptionPane.showInputDialog("Enter " + "the sales for day " + (i + 1) + ".");
+            array[i] = Double.parseDouble(input);
+        }
+    }
+}
