@@ -2,9 +2,13 @@
 import java.util.Scanner;
 
 /**
- * Grader _________________________________ -testScores:double[]
- * _________________________________ +Grader (scoreArray : double[]);
- * +getLowestScore() :double +getAverage() : double
+ *          Grader
+ * _________________________________ 
+ * -testScores:double[]
+ * _________________________________ 
+ * +Grader (scoreArray : double[]);
+ * +getLowestScore() :double 
+ * +getAverage() : double
  * _________________________________
  */
 /**
