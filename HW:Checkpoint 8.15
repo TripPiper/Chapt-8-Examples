@@ -1,0 +1,23 @@
+public static void main(String[] args) {
+         
+         // Checkpoint 8.15 a) Write a statement that declares a 
+         //String array and initialize with 4 different planets.
+         String [] planets = { "Mercury" ," Venus ", "Earth ", "Mars"};
+         
+            
+         // Checkpoint 8.15 b Write a loop that displays part a
+         
+         for (int i = 0; i < planets.length ; i++)
+         { System.out.println(planets[i]);
+         }
+         
+           // Checkpoint 8.15 b Write a loop that displays the first 
+           //character of the strings stored in each element of part a
+          for (int i = 0; i < planets.length ; i++)
+         { System.out.println(planets[i].charAt(0));
+         }
+         
+         }
+     }
+    
+    
