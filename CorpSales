@@ -1,0 +1,60 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+/*
+ This program demostrate a two dimensional array.
+ */
+/**
+ *
+ * @author Tutor
+ */
+public class CorpsSales {
+
+    public static void main(String[] args) {
+
+        final int DIVS = 3; // Three divisions in the company
+        final int QRTS = 4; // Four quarters
+        double totalSales = 0.0;  // Accumulator
+
+        // Create an array to hold the sales for each
+        // Division, for each quater.
+        double[][] sales = new double[DIVS][QRTS];
+
+        // Create a Scanner object for keyboard input.
+        Scanner keyboard = new Scanner(System.in);
+
+        // Display an introduction.
+        System.out.println(" This program will calculate the "
+                + " total sales of");
+
+        System.out.println(" all the company's divisions. "
+                + " Enter the following sales data :");
+
+        // Nested loops to fill the array with quarterly
+        //sales figures for each division.
+        for (int div = 0; div < DIVS; div++) {
+            for (int qtr = 0; qtr < QRTS; qtr++) {
+                System.out.print(" Divsion " + (div + 1)
+                        + " Quarter " + (qtr + 1) + " : $");
+                sales[div][qtr] = keyboard.nextDouble();
+            }
+            System.out.println(" ");
+        }
+
+        // Nested loops to add all the elements of the array.
+        for (int div = 0; div < DIVS; div++) {
+            for (int qtr = 0; qtr < QRTS; qtr++) {
+                totalSales += sales[div][qtr];
+            }
+
+        }
+
+        // Create a DecimalFormat object to format output
+        DecimalFormat dollar = new DecimalFormat("#,##0.00");
+
+        //Display total sales.
+        System.out.println(" The total sales for the company are $"
+                + dollar.format(totalSales));
+
+    }
+}
