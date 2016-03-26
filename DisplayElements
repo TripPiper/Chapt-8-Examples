@@ -7,15 +7,20 @@ public class DisplayElements {
                 {5, 6, 7, 8},
                 {9, 10, 11, 12}};
 
-
-       
-
         // Display number of column in each row.
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 4; col++) {
                 System.out.println(numbers[row][col]);
 
             }
+        }
+        
+        // Alternative to display the elements. 
+        for (int row = 0; row < numbers.length; row++) {
+            for (int col = 0; col < numbers[row].length; col++) {
+                System.out.println(numbers[row][col]);
+            }
+
         }
     }
 }
